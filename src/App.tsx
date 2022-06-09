@@ -1,12 +1,7 @@
-import LogoIcon from "./images/logo-white.svg";
+import LogoIcon from './images/logo-white.svg';
 
 const App: React.FC = () => {
-  return (
-    <>
-      <img src={LogoIcon} alt="teste" />
-      <p>teste</p>;
-    </>
-  );
+  return <h1>Hello World</h1>;
 };
 
 export default App;
