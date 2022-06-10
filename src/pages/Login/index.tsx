@@ -1,3 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+
+//hooks
+import useAuth from '../../hooks/useAuth';
+
 //components
 import LoginButton from '../../components/LoginButton';
 
@@ -13,6 +18,16 @@ import GoogleIcon from '../../images/google-icon.svg';
 import SpotifyIcon from '../../images/logo-white.svg';
 
 const Login = () => {
+  const navigate = useNavigate();
+  const { user, signInWithGoogle } = useAuth();
+
+  const handleSiginIn = async () => {
+    if (!user) {
+      await signInWithGoogle();
+    }
+    navigate('/Home');
+  };
+
   return (
     <S.Container>
       <S.Header>
@@ -27,8 +42,12 @@ const Login = () => {
 
       <S.Main>
         <Title fontSize="1.25rem">Faça login no Spotify</Title>
-
-        <LoginButton border backgroundColor="transparent" icon={GoogleIcon}>
+        <LoginButton
+          onClick={handleSiginIn}
+          border
+          icon={GoogleIcon}
+          backgroundColor="transparent"
+        >
           Continuar com o Google
         </LoginButton>
 

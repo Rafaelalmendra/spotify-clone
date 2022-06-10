@@ -7,18 +7,24 @@ import * as S from './styles';
 interface LoginButtonProps {
   icon?: any; //procurar a tipagem certa
   border?: boolean;
+  onClick?: () => Promise<void>;
   backgroundColor?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const LoginButton = ({
   icon,
   border,
+  onClick,
   children,
   backgroundColor,
 }: LoginButtonProps) => {
   return (
-    <S.ButtonContainer backgroundColor={backgroundColor} border={border}>
+    <S.ButtonContainer
+      onClick={onClick}
+      backgroundColor={backgroundColor}
+      border={border}
+    >
       {!!icon && <Image src={icon} alt="Icone" width="30px" height="30px" />}
       {children}
     </S.ButtonContainer>
