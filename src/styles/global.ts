@@ -1,10 +1,12 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
     :root {
         --black: #212121;
         --fullBlack: #000000;
         --lightBlack: #121212;
+        --gray: #B3B3B3;
+        --gray-light: #363636;
         --white: #FFFFFF;
         --green: #1ED760;
     }
@@ -15,5 +17,9 @@ export default createGlobalStyle`
         border: 0;
         text-decoration: none;
         box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'DM Sans', sans-serif;
     }
  `;

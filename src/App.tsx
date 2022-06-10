@@ -1,7 +1,7 @@
-import LogoIcon from './images/logo-white.svg';
+import MappedRoutes from './routes';
 
 const App: React.FC = () => {
-  return <h1>Hello World</h1>;
+  return <MappedRoutes />;
 };
 
 export default App;
