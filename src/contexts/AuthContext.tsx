@@ -9,6 +9,7 @@ interface UserProps {
 
 interface AuthContextProps {
   user: UserProps | undefined;
+  setUser: (user: UserProps | undefined) => void;
   signInWithGoogle: () => Promise<void>;
 }
 
@@ -64,7 +65,7 @@ export function AuthContextProvider(props: AuthContextTypeProviderProps) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, signInWithGoogle }}>
+    <AuthContext.Provider value={{ user, setUser, signInWithGoogle }}>
       {props.children}
     </AuthContext.Provider>
   );

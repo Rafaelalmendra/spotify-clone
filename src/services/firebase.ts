@@ -3,12 +3,12 @@ import 'firebase/auth';
 import 'firebase/database';
 
 const firebaseConfig = {
-  appId: process.env.REACT_APP_APP_ID,
-  apiKey: process.env.REACT_APP_API_KEY,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: '1:165101105789:web:27fded8194a4cd42a67714',
+  apiKey: 'AIzaSyB2889MiSzzsXrZBlBwIud572z1qFnHn7w',
+  projectId: 'spotify-eecd2',
+  authDomain: 'spotify-eecd2.firebaseapp.com',
+  storageBucket: 'spotify-eecd2.appspot.com',
+  messagingSenderId: '165101105789',
 };
 
 firebase.initializeApp(firebaseConfig);
