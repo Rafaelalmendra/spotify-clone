@@ -1,10 +1,10 @@
 //utils
-import { Image } from '../../styles/utils';
+import { Image } from '../../../styles/utils';
 
 //styles
 import * as S from './styles';
 
-interface LoginButtonProps {
+interface ButtonLoginProps {
   icon?: any; //procurar a tipagem certa
   border?: boolean;
   onClick?: () => Promise<void>;
@@ -12,23 +12,23 @@ interface LoginButtonProps {
   children?: React.ReactNode;
 }
 
-const LoginButton = ({
+const ButtonLogin = ({
   icon,
   border,
   onClick,
   children,
   backgroundColor,
-}: LoginButtonProps) => {
+}: ButtonLoginProps) => {
   return (
-    <S.ButtonContainer
+    <S.ButtonLoginContainer
       onClick={onClick}
       backgroundColor={backgroundColor}
       border={border}
     >
       {!!icon && <Image src={icon} alt="Icone" width="30px" height="30px" />}
       {children}
-    </S.ButtonContainer>
+    </S.ButtonLoginContainer>
   );
 };
 
-export default LoginButton;
+export default ButtonLogin;

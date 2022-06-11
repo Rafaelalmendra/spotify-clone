@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 //components
-import LoginButton from '../../components/LoginButton';
+import ButtonLogin from '../../components/Buttons/ButtonLogin';
 
 //utils
 import { Image, Title } from '../../styles/utils';
@@ -42,18 +42,18 @@ const Login = () => {
 
       <S.Main>
         <Title fontSize="1.25rem">Faça login no Spotify</Title>
-        <LoginButton
+        <ButtonLogin
           onClick={handleSiginIn}
           border
           icon={GoogleIcon}
           backgroundColor="transparent"
         >
           Continuar com o Google
-        </LoginButton>
+        </ButtonLogin>
 
-        <LoginButton backgroundColor="var(--gray-light)" icon={AppleIcon}>
+        <ButtonLogin backgroundColor="var(--gray-light)" icon={AppleIcon}>
           Continuar com o Apple
-        </LoginButton>
+        </ButtonLogin>
       </S.Main>
     </S.Container>
   );

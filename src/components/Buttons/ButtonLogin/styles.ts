@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-interface LoginButtonProps {
+interface ButtonLoginContainerProps {
   border?: boolean;
   backgroundColor?: string;
 }
 
-export const ButtonContainer = styled.button<LoginButtonProps>`
+export const ButtonLoginContainer = styled.button<ButtonLoginContainerProps>`
   display: flex;
   align-items: center;
   justify-content: center;

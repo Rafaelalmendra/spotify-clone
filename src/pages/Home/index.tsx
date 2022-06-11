@@ -10,11 +10,7 @@ const Home = () => {
     setUser(undefined);
   };
 
-  return (
-    <DashboardLayout>
-      <h1>teste</h1>
-    </DashboardLayout>
-  );
+  return <DashboardLayout></DashboardLayout>;
 };
 
 export default Home;
