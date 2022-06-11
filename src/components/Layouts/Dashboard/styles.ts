@@ -7,5 +7,5 @@ export const Container = styled.div`
 `;
 
 export const Layout = styled.div`
-  width: 80%;
+  width: 86%;
 `;

@@ -51,7 +51,7 @@ const Login = () => {
           Continuar com o Google
         </ButtonLogin>
 
-        <ButtonLogin backgroundColor="var(--gray-light)" icon={AppleIcon}>
+        <ButtonLogin backgroundColor="var(--grayPrimary)" icon={AppleIcon}>
           Continuar com o Apple
         </ButtonLogin>
       </S.Main>

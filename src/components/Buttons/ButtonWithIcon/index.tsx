@@ -2,11 +2,12 @@ import { Image } from '../../../styles/utils';
 import * as S from './styles';
 
 interface ButtonWithIconProps {
-  children: React.ReactNode;
+  icon?: any; //procurar a tipagem certa
   color?: string;
+  active?: boolean;
   fontSize?: string;
   fontWeight?: string;
-  icon?: any;
+  children: React.ReactNode;
 }
 
 const ButtonWithIcon = ({
@@ -15,14 +16,16 @@ const ButtonWithIcon = ({
   fontSize,
   fontWeight,
   icon,
+  active,
 }: ButtonWithIconProps) => {
   return (
     <S.ButtonWithIconContainer
       color={color}
       fontSize={fontSize}
       fontWeight={fontWeight}
+      active={active}
     >
-      <Image src={icon} width="24px" height="24px" />
+      <Image src={icon} width="20px" height="20px" />
       {children}
     </S.ButtonWithIconContainer>
   );

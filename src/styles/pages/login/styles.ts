@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
 
-  background-color: var(--black);
+  background-color: var(--blackSecondary);
 `;
 
 export const Header = styled.div`

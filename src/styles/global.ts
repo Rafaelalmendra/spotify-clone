@@ -2,12 +2,17 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
     :root {
-        --black: #212121;
-        --fullBlack: #000000;
-        --lightBlack: #121212;
-        --gray: #B3B3B3;
-        --gray-light: #363636;
+        --black: #000000;
+        --blackPrimary: #121212;
+        --blackSecondary: #212121;
+        --blackTertiary: #181818;
+        
         --white: #FFFFFF;
+        
+        --gray: #B3B3B3;
+        --grayPrimary: #363636;
+        --graySecondary: #282828;
+        
         --green: #1ED760;
     }
 
