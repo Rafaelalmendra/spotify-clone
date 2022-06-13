@@ -35,5 +35,5 @@ export const ArrowContainer = styled.div<ArrowProps>`
   background: var(--blackQuaternary);
 
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
 `;
