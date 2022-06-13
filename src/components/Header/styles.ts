@@ -37,6 +37,10 @@ export const ArrowContainer = styled.div<ArrowProps>`
 `;
 
 //profile
+export const Profile = styled.div`
+  position: relative;
+`;
+
 export const ProfileContainer = styled.div`
   width: 9.1875rem;
   height: 2.5625rem;
@@ -55,5 +59,42 @@ export const ProfileContainer = styled.div`
     width: 2.3125rem;
     height: 2.3125rem;
     border-radius: 50%;
+  }
+`;
+
+export const ProfileOpenContainer = styled.div`
+  position: absolute;
+  right: 0;
+  top: 2.5rem;
+
+  width: 14.5rem;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0.25rem;
+  gap: 0.5rem;
+
+  margin-top: 0.5rem;
+
+  border-radius: 0.25rem;
+  background: var(--graySecondary);
+`;
+
+export const ProfileOpenItem = styled.div<ArrowProps>`
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.625rem;
+
+  border-radius: 0.25rem;
+
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+
+  &:hover {
+    background: ${(props) => (props.disabled ? 'none' : 'var(--grayTertiary)')};
   }
 `;
