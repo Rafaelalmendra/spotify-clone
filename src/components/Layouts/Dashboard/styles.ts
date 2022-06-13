@@ -7,5 +7,20 @@ export const Container = styled.div`
 `;
 
 export const Layout = styled.div`
-  width: 86%;
+  width: 100%;
+  height: 100vh;
+
+  background: linear-gradient(
+    180deg,
+    #222222 0%,
+    #1f1f1f 11.64%,
+    #171717 25.66%,
+    #161616 32.94%,
+    #151515 35.98%,
+    #131313 44.89%,
+    #121212 55.22%,
+    #121212 75.34%,
+    #121212 85.45%,
+    #121212 100%
+  );
 `;

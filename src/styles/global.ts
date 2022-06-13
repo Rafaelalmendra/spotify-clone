@@ -6,6 +6,7 @@ export default createGlobalStyle`
         --blackPrimary: #121212;
         --blackSecondary: #212121;
         --blackTertiary: #181818;
+        --blackQuaternary: #131313;
         
         --white: #FFFFFF;
         
