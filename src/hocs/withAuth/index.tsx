@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //hooks
-import useAuth from '../../hooks/useAuth';
+import useAuth from 'src/hooks/useAuth';
 
 const withAuth = (Component: any) => {
   return (props: any) => {

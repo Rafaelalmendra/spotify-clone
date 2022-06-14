@@ -1,21 +1,21 @@
 import { useNavigate } from 'react-router-dom';
 
 //hooks
-import useAuth from '../../hooks/useAuth';
+import useAuth from 'src/hooks/useAuth';
 
 //components
-import ButtonLogin from '../../components/Buttons/ButtonLogin';
+import ButtonLogin from 'src/components/Buttons/ButtonLogin';
 
 //utils
-import { Image, Title } from '../../styles/utils';
+import { Image, Title } from 'src/styles/utils';
 
 //styles
-import * as S from '../../styles/pages/login/styles';
+import * as S from 'src/styles/pages/login/styles';
 
 //images
-import AppleIcon from '../../images/apple-icon.svg';
-import GoogleIcon from '../../images/google-icon.svg';
-import SpotifyIcon from '../../images/logo-white.svg';
+import AppleIcon from 'src/images/apple-icon.svg';
+import GoogleIcon from 'src/images/google-icon.svg';
+import SpotifyIcon from 'src/images/logo-white.svg';
 
 const Login = () => {
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
 //utils
-import { Image } from '../../../styles/utils';
+import { Image } from 'src/styles/utils';
 
 //styles
 import * as S from './styles';

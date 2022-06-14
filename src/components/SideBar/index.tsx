@@ -3,16 +3,16 @@ import ButtonWithIcon from '../Buttons/ButtonWithIcon';
 
 //styles
 import * as S from './styles';
-import { Image } from '../../styles/utils';
+import { Image } from 'src/styles/utils';
 
 //images
-import HomeIcon from '../../images/home-icon.svg';
-import SpotifyIcon from '../../images/logo-white.svg';
-import SearchIcon from '../../images/search-icon.svg';
-import LibraryIcon from '../../images/library-icon.svg';
-import LikedSongsIcon from '../../images/liked-songs-icon.svg';
-import YourEpisodiesIcon from '../../images/your-episodes-icon.svg';
-import CreatePlaylistIcon from '../../images/create-playlist-icon.svg';
+import HomeIcon from 'src/images/home-icon.svg';
+import SpotifyIcon from 'src/images/logo-white.svg';
+import SearchIcon from 'src/images/search-icon.svg';
+import LibraryIcon from 'src/images/library-icon.svg';
+import LikedSongsIcon from 'src/images/liked-songs-icon.svg';
+import YourEpisodiesIcon from 'src/images/your-episodes-icon.svg';
+import CreatePlaylistIcon from 'src/images/create-playlist-icon.svg';
 
 const SideBar = () => {
   return (

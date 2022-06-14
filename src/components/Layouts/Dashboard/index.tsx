@@ -1,4 +1,4 @@
-import withAuth from '../../../hocs/withAuth';
+import withAuth from 'src/hocs/withAuth';
 import DownBar from '../../DownBar';
 import Header from '../../Header';
 import SideBar from '../../SideBar';

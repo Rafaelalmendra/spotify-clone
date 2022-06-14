@@ -2,34 +2,29 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //hooks
-import useAuth from '../../hooks/useAuth';
-
-//components
+import useAuth from 'src/hooks/useAuth';
 
 //styles
 import * as S from './styles';
-import { Image, Text } from '../../styles/utils';
+import { Image, Text } from 'src/styles/utils';
 
 //images
-import ArrowLeftIcon from '../../images/arrow-left-icon.svg';
-import ArrowRightIcon from '../../images/arrow-right-icon.svg';
-import ArrowDownIcon from '../../images/arrow-down-icon.svg';
-import ArrowUpIcon from '../../images/arrow-up-icon.svg';
-import ExternalLinkIcon from '../../images/external-link-icon.svg';
+import ArrowUpIcon from 'src/images/arrow-up-icon.svg';
+import ArrowDownIcon from 'src/images/arrow-down-icon.svg';
+import ArrowLeftIcon from 'src/images/arrow-left-icon.svg';
+import ArrowRightIcon from 'src/images/arrow-right-icon.svg';
+import ExternalLinkIcon from 'src/images/external-link-icon.svg';
 
 const Header = () => {
   const navigate = useNavigate();
   const { user, setUser } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
 
+  const name = user?.name?.substring(0, user?.name?.indexOf(' '));
   const signOut = () => {
     setUser(undefined);
     navigate('/');
   };
-
-  const name = user?.name?.substring(0, user?.name?.indexOf(' '));
-  const avatar = user?.avatar;
-  console.log(avatar);
 
   return (
     <S.HeaderContainer>
@@ -45,7 +40,7 @@ const Header = () => {
 
       <S.Profile>
         <S.ProfileContainer onClick={() => setIsOpen(!isOpen)}>
-          <img src="https://lh3.googleusercontent.com/a-/AOh14GisVE7OMTRPJfj3c9qQLpqPmt84JVAwekFBtbaj=s96-c" />
+          <img src={user?.avatar} alt={`imagem de ${name}`} />
           <Text>{name}</Text>
           {isOpen ? (
             <Image src={ArrowUpIcon} width="24px" height="24px" />

@@ -1,15 +1,10 @@
-import DashboardLayout from '../../components/Layouts/Dashboard';
-import useAuth from '../../hooks/useAuth';
+//layout
+import DashboardLayout from 'src/components/Layouts/Dashboard';
 
 //styles
-import * as S from '../../styles/pages/home/styles';
+import * as S from 'src/styles/pages/home/styles';
 
 const Home = () => {
-  const { user, setUser } = useAuth();
-  const signOut = () => {
-    setUser(undefined);
-  };
-
   return (
     <DashboardLayout>
       <S.Container></S.Container>

@@ -1,4 +1,4 @@
-import { Image } from '../../../styles/utils';
+import { Image } from 'src/styles/utils';
 import * as S from './styles';
 
 interface ButtonWithIconProps {
