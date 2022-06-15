@@ -13,7 +13,7 @@ import { Image, Title } from 'src/styles/utils';
 import * as S from 'src/styles/pages/login/styles';
 
 //images
-import AppleIcon from 'src/images/apple-icon.svg';
+//import AppleIcon from 'src/images/apple-icon.svg';
 import GoogleIcon from 'src/images/google-icon.svg';
 import SpotifyIcon from 'src/images/logo-white.svg';
 
@@ -51,9 +51,11 @@ const Login = () => {
           Continuar com o Google
         </ButtonLogin>
 
+        {/* 
         <ButtonLogin backgroundColor="var(--grayPrimary)" icon={AppleIcon}>
           Continuar com o Apple
         </ButtonLogin>
+        */}
       </S.Main>
     </S.Container>
   );

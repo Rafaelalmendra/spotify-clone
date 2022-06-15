@@ -20,8 +20,10 @@ const Header = () => {
   const { user, setUser } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
 
-  const name = user?.name?.substring(0, user?.name?.indexOf(' '));
-  const signOut = () => {
+  var name = user?.name.split(' ')[0];
+
+  const logout = () => {
+    localStorage.removeItem('user');
     setUser(undefined);
     navigate('/');
   };
@@ -57,7 +59,7 @@ const Header = () => {
             <S.ProfileOpenItem disabled>
               <Text fontSize="14px">Perfil</Text>
             </S.ProfileOpenItem>
-            <S.ProfileOpenItem onClick={signOut}>
+            <S.ProfileOpenItem onClick={logout}>
               <Text fontSize="14px">Sair</Text>
             </S.ProfileOpenItem>
           </S.ProfileOpenContainer>

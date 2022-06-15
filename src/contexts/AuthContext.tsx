@@ -31,11 +31,17 @@ export function AuthContextProvider(props: AuthContextTypeProviderProps) {
           throw new Error('Missing information from Google Account.');
         }
 
-        setUser({
-          id: uid,
-          name: displayName,
-          avatar: photoURL,
-        });
+        localStorage.setItem(
+          'user',
+          JSON.stringify({
+            id: uid,
+            name: displayName,
+            avatar: photoURL,
+          })
+        );
+        const userString = localStorage.getItem('user');
+        const userParsed = JSON.parse(userString as string);
+        setUser(userParsed);
       }
     });
 
@@ -56,11 +62,17 @@ export function AuthContextProvider(props: AuthContextTypeProviderProps) {
         throw new Error('Missing information from Google Account.');
       }
 
-      setUser({
-        id: uid,
-        name: displayName,
-        avatar: photoURL,
-      });
+      localStorage.setItem(
+        'user',
+        JSON.stringify({
+          id: uid,
+          name: displayName,
+          avatar: photoURL,
+        })
+      );
+      const userString = localStorage.getItem('user');
+      const userParsed = JSON.parse(userString as string);
+      setUser(userParsed);
     }
   };
 
