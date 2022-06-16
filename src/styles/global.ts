@@ -15,6 +15,7 @@ export default createGlobalStyle`
         --grayPrimary: #363636;
         --graySecondary: #282828;
         --grayTertiary: #3E3E3E;
+        --grayQuartenary: #303030;
         
         --green: #1ED760;
     }
