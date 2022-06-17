@@ -1,5 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
+//hooks
+import useAuth from 'src/hooks/useAuth';
 
 //styles
 import * as S from './styles';
@@ -12,9 +16,38 @@ import ArrowLeftIcon from 'src/images/arrow-left-icon.svg';
 import ArrowRightIcon from 'src/images/arrow-right-icon.svg';
 import ExternalLinkIcon from 'src/images/external-link-icon.svg';
 
+interface UserProps {
+  display_name: string;
+  images: {
+    url: string;
+  };
+}
+
 const Header = () => {
+  const { token } = useAuth();
   const navigate = useNavigate();
+  const [user, setUser] = useState<UserProps>();
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get('https://api.spotify.com/v1/me', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => {
+        const name = res.data.display_name;
+        const image = res.data.images[0].url;
+        setUser({
+          display_name: name,
+          images: {
+            url: image,
+          },
+        });
+      });
+  }, [token]);
 
   const logout = () => {
     localStorage.removeItem('access_token');
@@ -36,11 +69,10 @@ const Header = () => {
 
       <S.Profile>
         <S.ProfileContainer onClick={() => setIsOpen(!isOpen)}>
-          <img
-            src="https://lh3.googleusercontent.com/a-/AOh14GisVE7OMTRPJfj3c9qQLpqPmt84JVAwekFBtbaj=s96-c"
-            alt={`imagem de `}
-          />
-          <Text>Rafael</Text>
+          <img src={user?.images?.url} alt={`imagem de `} />
+          <Text fontSize="14px" fontWeight="bold">
+            {user?.display_name}
+          </Text>
           {isOpen ? (
             <Image src={ArrowUpIcon} width="24px" height="24px" />
           ) : (

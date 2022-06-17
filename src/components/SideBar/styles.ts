@@ -5,7 +5,7 @@ export const Container = styled.div`
 
   height: 100vh;
   background: var(--black);
-  padding-left: 1.8125rem;
+  padding: 0 1.8125rem;
 `;
 
 export const ImageContainer = styled.div`
@@ -15,12 +15,21 @@ export const ImageContainer = styled.div`
 export const OptionsTop = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 3rem;
   gap: 1.2rem;
+  margin-bottom: 3rem;
 `;
 
 export const OptionsMiddle = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  margin-bottom: 1.4rem;
+`;
+
+export const OptionsBottom = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  overflow-y: scroll;
 `;

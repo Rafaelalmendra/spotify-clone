@@ -26,12 +26,23 @@ export function AuthContextProvider(props: AuthContextTypeProviderProps) {
     }
   }, [token]);
 
-  const CLIENT_ID = import.meta.env.VITE_APP_CLIENT_ID;
-  const REDIRECT_URI = 'http://localhost:3000/home';
-  const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
+  const client_id = import.meta.env.VITE_APP_CLIENT_ID;
+  const redirect_uri = 'http://localhost:3000/home';
+  const api_uri = 'https://accounts.spotify.com/authorize';
+  const scope = [
+    'user-read-private',
+    'user-read-email',
+    'user-modify-playback-state',
+    'user-read-playback-state',
+    'user-read-currently-playing',
+    'user-read-recently-played',
+    'user-top-read',
+  ];
 
   const handleLogin = () => {
-    window.location.href = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&show_dialog=true`;
+    window.location.href = `${api_uri}?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scope.join(
+      ' '
+    )}&response_type=token&show_dialog=true`;
   };
 
   return (

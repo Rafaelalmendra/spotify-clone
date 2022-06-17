@@ -42,12 +42,13 @@ export const Profile = styled.div`
 `;
 
 export const ProfileContainer = styled.div`
-  width: 9.1875rem;
+  width: 100%;
   height: 2.5625rem;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
   padding: 0.125rem 0.625rem 0.125rem 0.25rem;
 
   border-radius: 2.0625rem;
@@ -56,8 +57,8 @@ export const ProfileContainer = styled.div`
   cursor: pointer;
 
   img:first-child {
-    width: 2.3125rem;
-    height: 2.3125rem;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
   }
 `;

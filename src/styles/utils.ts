@@ -91,3 +91,15 @@ export const Text = styled.p<TextProps>`
     padding: ${(props) => props.paddingMobile};
   }
 `;
+
+interface DividerProps {
+  //color
+  backgroundColor?: string;
+}
+
+export const Divider = styled.div<DividerProps>`
+  width: 100%;
+  height: 1px;
+  background-color: ${(props) =>
+    props.backgroundColor ? props.backgroundColor : 'var(--grayTertiary)'};
+`;

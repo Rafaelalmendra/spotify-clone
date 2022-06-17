@@ -31,4 +31,15 @@ export default createGlobalStyle`
     body {
         font-family: 'DM Sans', sans-serif;
     }
+
+    ::-webkit-scrollbar {
+    height: 0.65rem;
+    width: 0.625rem;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #4D4D4D;
+  }
  `;
