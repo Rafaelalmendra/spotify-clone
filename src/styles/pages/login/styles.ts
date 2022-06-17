@@ -30,9 +30,9 @@ export const Main = styled.main`
   flex-direction: column;
   justify-content: center;
 
-  h2 {
-    margin-bottom: 1.125rem;
-  }
+  //h2 {
+  //margin-bottom: 1.125rem;
+  //}
 
   button {
     margin-bottom: 1rem;

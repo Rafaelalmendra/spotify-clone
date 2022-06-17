@@ -1,8 +1,9 @@
-import withAuth from 'src/hocs/withAuth';
-import DownBar from '../../DownBar';
+//components
 import Header from '../../Header';
+import DownBar from '../../DownBar';
 import SideBar from '../../SideBar';
 
+//styles
 import * as S from './styles';
 
 interface DashboardLaoyoutProps {
@@ -11,18 +12,16 @@ interface DashboardLaoyoutProps {
 
 const DashboardLayout = ({ children }: DashboardLaoyoutProps) => {
   return (
-    <>
-      <S.Container>
-        <SideBar />
-        <DownBar />
+    <S.Container>
+      <SideBar />
+      <DownBar />
 
-        <S.Layout>
-          <Header />
-          {children}
-        </S.Layout>
-      </S.Container>
-    </>
+      <S.Layout>
+        <Header />
+        {children}
+      </S.Layout>
+    </S.Container>
   );
 };
 
-export default withAuth(DashboardLayout);
+export default DashboardLayout;

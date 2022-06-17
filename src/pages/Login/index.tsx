@@ -4,29 +4,23 @@ import { useNavigate } from 'react-router-dom';
 import useAuth from 'src/hooks/useAuth';
 
 //components
-import ButtonLogin from 'src/components/Buttons/ButtonLogin';
-
-//utils
 import { Image, Title } from 'src/styles/utils';
+import ButtonLogin from 'src/components/Buttons/ButtonLogin';
 
 //styles
 import * as S from 'src/styles/pages/login/styles';
 
 //images
-//import AppleIcon from 'src/images/apple-icon.svg';
-import GoogleIcon from 'src/images/google-icon.svg';
 import SpotifyIcon from 'src/images/logo-white.svg';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { user, signInWithGoogle } = useAuth();
+  const { token } = useAuth();
 
-  const handleSiginIn = async () => {
-    if (!user) {
-      await signInWithGoogle();
-    }
-    navigate('/Home');
-  };
+  const CLIENT_ID = import.meta.env.VITE_APP_CLIENT_ID;
+  const REDIRECT_URI = 'http://localhost:3000/home';
+  const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
+  const RESPONSE_TYPE = 'token';
 
   return (
     <S.Container>
@@ -41,21 +35,13 @@ const Login = () => {
       </S.Header>
 
       <S.Main>
-        <Title fontSize="1.25rem">Faça login no Spotify</Title>
-        <ButtonLogin
-          onClick={handleSiginIn}
-          border
-          icon={GoogleIcon}
-          backgroundColor="transparent"
-        >
-          Continuar com o Google
+        <ButtonLogin backgroundColor="var(--green)">
+          <a
+            href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}
+          >
+            <Title fontSize="1.25rem">Faça Login no Spotify</Title>
+          </a>
         </ButtonLogin>
-
-        {/* 
-        <ButtonLogin backgroundColor="var(--grayPrimary)" icon={AppleIcon}>
-          Continuar com o Apple
-        </ButtonLogin>
-        */}
       </S.Main>
     </S.Container>
   );

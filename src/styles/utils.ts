@@ -36,6 +36,9 @@ interface TitleProps {
   //color
   color?: string;
 
+  //text
+  textAlign?: string;
+
   //margin-padding
   margin?: string;
   marginMobile?: string;
@@ -46,6 +49,7 @@ interface TitleProps {
 export const Title = styled.h2<TitleProps>`
   font-size: ${(props) => props.fontSize || '2rem'};
   font-weight: ${(props) => props.fontWeight || 'bold'};
+  text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')};
   color: ${(props) => props.color || 'var(--white)'};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
@@ -61,6 +65,9 @@ interface TextProps {
   fontSize?: string;
   fontWeight?: string;
 
+  //text
+  textAlign?: string;
+
   //color
   color?: string;
 
@@ -74,6 +81,7 @@ interface TextProps {
 export const Text = styled.p<TextProps>`
   font-size: ${(props) => props.fontSize || '1rem'};
   font-weight: ${(props) => props.fontWeight || 'normal'};
+  text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')};
   color: ${(props) => props.color || 'var(--white)'};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};

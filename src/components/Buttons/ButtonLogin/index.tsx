@@ -7,7 +7,7 @@ import * as S from './styles';
 interface ButtonLoginProps {
   icon?: any; //procurar a tipagem certa
   border?: boolean;
-  onClick?: () => Promise<void>;
+  onClick?: () => Promise<void> | void;
   backgroundColor?: string;
   children?: React.ReactNode;
 }

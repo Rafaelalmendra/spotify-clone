@@ -17,14 +17,10 @@ import ExternalLinkIcon from 'src/images/external-link-icon.svg';
 
 const Header = () => {
   const navigate = useNavigate();
-  const { user, setUser } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
 
-  var name = user?.name.split(' ')[0];
-
   const logout = () => {
-    localStorage.removeItem('user');
-    setUser(undefined);
+    localStorage.removeItem('token');
     navigate('/');
   };
 
@@ -42,8 +38,11 @@ const Header = () => {
 
       <S.Profile>
         <S.ProfileContainer onClick={() => setIsOpen(!isOpen)}>
-          <img src={user?.avatar} alt={`imagem de ${name}`} />
-          <Text>{name}</Text>
+          <img
+            src="https://lh3.googleusercontent.com/a-/AOh14GisVE7OMTRPJfj3c9qQLpqPmt84JVAwekFBtbaj=s96-c"
+            alt={`imagem de `}
+          />
+          <Text>Rafael</Text>
           {isOpen ? (
             <Image src={ArrowUpIcon} width="24px" height="24px" />
           ) : (
