@@ -12,8 +12,15 @@ export const Container = styled.div`
   background: var(--grayQuartenary);
   border-radius: 4px;
 
+  transition: background 0.2s ease-in-out;
+  cursor: pointer;
+
   img {
     width: 100px;
     height: 100px;
+  }
+
+  &:hover {
+    background: var(--grayTertiary);
   }
 `;
