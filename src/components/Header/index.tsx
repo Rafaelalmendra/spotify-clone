@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-//hooks
-import useAuth from 'src/hooks/useAuth';
-
 //styles
 import * as S from './styles';
 import { Image, Text } from 'src/styles/utils';
@@ -20,8 +17,9 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const logout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('access_token');
     navigate('/');
+    window.location.reload();
   };
 
   return (

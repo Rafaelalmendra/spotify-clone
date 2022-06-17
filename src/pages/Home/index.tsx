@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //hooks
@@ -18,43 +17,13 @@ import * as S from 'src/styles/pages/home/styles';
 
 //images
 import ImageTest from 'src/images/image-test.svg';
+import withAuth from 'src/hocs/withAuth';
 
 const Home = () => {
   const navigate = useNavigate();
-  const { token } = useAuth();
-
-  useEffect(() => {
-    if (!token) {
-      setTimeout(() => {
-        navigate('/');
-      }, 8000);
-    }
-  }, [token]);
 
   return (
     <DashboardLayout>
-      {!token && (
-        <Modal>
-          <Text
-            fontSize="34px"
-            fontWeight="bold"
-            textAlign="center"
-            margin="0 0 38px 0"
-          >
-            Você precisa estar logado para acessar esta página
-          </Text>
-          <Button
-            onClick={() => navigate('/')}
-            backgroundColor="var(--green)"
-            width="348px"
-          >
-            Faça o Login
-          </Button>
-          <Text margin="38px 0 0 0" color="var(--gray)">
-            Você será redirecionado automaticamente...
-          </Text>
-        </Modal>
-      )}
       <S.Container>
         <Title margin="0 0 18px 0">Boa noite</Title>
         <S.PlaylistContainer>
@@ -68,4 +37,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default withAuth(Home);

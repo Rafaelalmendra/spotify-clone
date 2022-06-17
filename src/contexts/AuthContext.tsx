@@ -1,9 +1,9 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 
 interface AuthContextProps {
-  token: string | null;
-  setToken: any;
-  logout: () => void;
+  token: string;
+  setToken: (token: string) => void;
+  handleLogin: () => void;
 }
 
 interface AuthContextTypeProviderProps {
@@ -13,28 +13,29 @@ interface AuthContextTypeProviderProps {
 export const AuthContext = createContext({} as AuthContextProps);
 
 export function AuthContextProvider(props: AuthContextTypeProviderProps) {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState('');
 
   useEffect(() => {
-    const hash: any = window.location.hash;
-    let token: any = window.localStorage.getItem('token');
+    const hash = window.location.hash;
 
     if (hash) {
-      token = hash.substring(1).split('&')[0].split('=')[1];
+      const accessToken = hash.substring(1).split('&')[0].split('=')[1];
 
-      window.location.hash = '';
-      window.localStorage.setItem('token', token);
-      setToken(token);
+      localStorage.setItem('access_token', accessToken);
+      setToken(accessToken as string);
     }
-  }, []);
+  }, [token]);
 
-  const logout = () => {
-    setToken(null);
-    window.localStorage.removeItem('token');
+  const CLIENT_ID = import.meta.env.VITE_APP_CLIENT_ID;
+  const REDIRECT_URI = 'http://localhost:3000/home';
+  const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
+
+  const handleLogin = () => {
+    window.location.href = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&show_dialog=true`;
   };
 
   return (
-    <AuthContext.Provider value={{ token, setToken, logout }}>
+    <AuthContext.Provider value={{ token, setToken, handleLogin }}>
       {props.children}
     </AuthContext.Provider>
   );

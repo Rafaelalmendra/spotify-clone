@@ -1,5 +1,3 @@
-import { useNavigate } from 'react-router-dom';
-
 //hooks
 import useAuth from 'src/hooks/useAuth';
 
@@ -14,13 +12,7 @@ import * as S from 'src/styles/pages/login/styles';
 import SpotifyIcon from 'src/images/logo-white.svg';
 
 const Login = () => {
-  const navigate = useNavigate();
-  const { token } = useAuth();
-
-  const CLIENT_ID = import.meta.env.VITE_APP_CLIENT_ID;
-  const REDIRECT_URI = 'http://localhost:3000/home';
-  const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
-  const RESPONSE_TYPE = 'token';
+  const { handleLogin } = useAuth();
 
   return (
     <S.Container>
@@ -35,12 +27,8 @@ const Login = () => {
       </S.Header>
 
       <S.Main>
-        <ButtonLogin backgroundColor="var(--green)">
-          <a
-            href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}
-          >
-            <Title fontSize="1.25rem">Faça Login no Spotify</Title>
-          </a>
+        <ButtonLogin onClick={handleLogin} backgroundColor="var(--green)">
+          <Title fontSize="1.25rem">Faça Login no Spotify</Title>
         </ButtonLogin>
       </S.Main>
     </S.Container>
