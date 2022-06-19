@@ -22,8 +22,8 @@ export const NavigationContainer = styled.div`
 `;
 
 export const ArrowContainer = styled.div<ArrowProps>`
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.1rem;
+  height: 2.1rem;
 
   display: flex;
   align-items: center;

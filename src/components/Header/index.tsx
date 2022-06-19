@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //hooks
-import useAuth from 'src/hooks/useAuth';
 import useAxiosFetch from 'src/hooks/useAxiosFetch';
 
 //styles
@@ -26,7 +25,6 @@ interface UserProps {
 }
 
 const Header = () => {
-  const { token } = useAuth();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const { data } = useAxiosFetch('/me');
@@ -57,7 +55,7 @@ const Header = () => {
       <S.Profile>
         <S.ProfileContainer onClick={() => setIsOpen(!isOpen)}>
           {data?.images?.map((item: any) => (
-            <img src={item.url} alt={`imagem de `} />
+            <img src={item?.url} alt={`imagem de `} />
           ))}
           <Text fontSize="14px" fontWeight="bold">
             {user?.display_name}

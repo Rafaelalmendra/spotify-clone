@@ -8,13 +8,7 @@ export const Container = styled.div`
 `;
 
 export const PlaylistContainer = styled.div`
-  width: 100%;
-
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 1.875rem;
-  margin-bottom: 3rem;
+  grid-gap: 16px 24px;
+  display: grid;
+  grid-template: auto/repeat(auto-fill, minmax(max(10px, 25%), 1fr));
 `;

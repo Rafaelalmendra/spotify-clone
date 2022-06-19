@@ -1,7 +1,8 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //hooks
-import useAuth from 'src/hooks/useAuth';
+import useAxiosFetch from 'src/hooks/useAxiosFetch';
 
 //layout
 import DashboardLayout from 'src/components/Layouts/Dashboard';
@@ -16,18 +17,39 @@ import CardPlayList from 'src/components/CardPlaylist';
 import * as S from 'src/styles/pages/home/styles';
 
 //images
-import ImageTest from 'src/images/image-test.svg';
 import withAuth from 'src/hocs/withAuth';
+
+interface PlaylistsProps {
+  name: string;
+  id: string;
+  images: [
+    {
+      url: string;
+    }
+  ];
+}
 
 const Home = () => {
   const navigate = useNavigate();
+  const { data } = useAxiosFetch('/me/playlists');
+  const [playlists, setPlaylists] = useState<PlaylistsProps[]>([]);
+
+  useEffect(() => {
+    setPlaylists(data?.items.slice(0, 6));
+  }, [data]);
 
   return (
     <DashboardLayout>
       <S.Container>
         <Title margin="0 0 18px 0">Boa noite</Title>
         <S.PlaylistContainer>
-          <CardPlayList text="Teste" image={ImageTest} />
+          {playlists?.map((item) => (
+            <CardPlayList
+              key={item?.id}
+              text={item?.name}
+              image={item?.images[0]?.url}
+            />
+          ))}
         </S.PlaylistContainer>
       </S.Container>
     </DashboardLayout>
