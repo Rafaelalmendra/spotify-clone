@@ -4,6 +4,7 @@ import axios from 'axios';
 
 //hooks
 import useAuth from 'src/hooks/useAuth';
+import useAxiosFetch from 'src/hooks/useAxiosFetch';
 
 //styles
 import * as S from './styles';
@@ -26,8 +27,9 @@ interface UserProps {
 const Header = () => {
   const { token } = useAuth();
   const navigate = useNavigate();
-  const [user, setUser] = useState<UserProps>();
   const [isOpen, setIsOpen] = useState(false);
+  const { data } = useAxiosFetch('/me');
+  const [user, setUser] = useState<UserProps>();
 
   useEffect(() => {
     axios

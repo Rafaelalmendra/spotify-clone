@@ -20,7 +20,6 @@ export function AuthContextProvider(props: AuthContextTypeProviderProps) {
 
     if (hash) {
       const accessToken = hash.substring(1).split('&')[0].split('=')[1];
-
       localStorage.setItem('access_token', accessToken);
       setToken(accessToken as string);
     }

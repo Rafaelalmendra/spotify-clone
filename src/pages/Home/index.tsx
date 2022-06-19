@@ -27,10 +27,7 @@ const Home = () => {
       <S.Container>
         <Title margin="0 0 18px 0">Boa noite</Title>
         <S.PlaylistContainer>
-          <CardPlayList text="Mix relax" image={ImageTest} />
-          <CardPlayList text="Mix anos 2000" image={ImageTest} />
-          <CardPlayList text="Mix indie" image={ImageTest} />
-          <CardPlayList text="Mix anos 70" image={ImageTest} />
+          <CardPlayList text="Teste" image={ImageTest} />
         </S.PlaylistContainer>
       </S.Container>
     </DashboardLayout>

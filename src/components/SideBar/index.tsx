@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 //hooks
-import useAuth from 'src/hooks/useAuth';
+import useAxiosFetch from 'src/hooks/useAxiosFetch';
 
 //components
 import ButtonWithIcon from '../Buttons/ButtonWithIcon';
@@ -19,6 +18,8 @@ import LibraryIcon from 'src/images/library-icon.svg';
 import LikedSongsIcon from 'src/images/liked-songs-icon.svg';
 import YourEpisodiesIcon from 'src/images/your-episodes-icon.svg';
 import CreatePlaylistIcon from 'src/images/create-playlist-icon.svg';
+import axios from 'axios';
+import useAuth from 'src/hooks/useAuth';
 
 interface PlaylistsProps {
   name: string;
@@ -27,6 +28,7 @@ interface PlaylistsProps {
 
 const SideBar = () => {
   const { token } = useAuth();
+  const { data } = useAxiosFetch('/me/playlists');
   const [playlists, setPlaylists] = useState<PlaylistsProps[]>([]);
 
   useEffect(() => {
@@ -68,7 +70,7 @@ const SideBar = () => {
       <Divider />
 
       <S.OptionsBottom>
-        {playlists?.map((item, id) => (
+        {playlists?.map((item) => (
           <Text key={item.id} fontSize="0.875rem" color="var(--gray)">
             {item.name}
           </Text>

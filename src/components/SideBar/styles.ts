@@ -32,4 +32,15 @@ export const OptionsBottom = styled.div`
   gap: 1rem;
   margin-top: 1.4rem;
   overflow-y: scroll;
+
+  p {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:hover {
+      color: var(--white);
+    }
+  }
 `;
