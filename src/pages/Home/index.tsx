@@ -31,11 +31,11 @@ interface PlaylistsProps {
 
 const Home = () => {
   const navigate = useNavigate();
-  const { data } = useAxiosFetch('/me/playlists');
+  const { data } = useAxiosFetch('/me/playlists', 6);
   const [playlists, setPlaylists] = useState<PlaylistsProps[]>([]);
 
   useEffect(() => {
-    setPlaylists(data?.items.slice(0, 6));
+    setPlaylists(data?.items);
   }, [data]);
 
   return (

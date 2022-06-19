@@ -25,7 +25,7 @@ export function AuthContextProvider(props: AuthContextTypeProviderProps) {
     }
   }, [token]);
 
-  const client_id = import.meta.env.VITE_APP_CLIENT_ID;
+  const client_id = import.meta.env.VITE_APP_CLIENT_ID; //coloque o seu client_id
   const redirect_uri = 'http://localhost:3000/home';
   const api_uri = 'https://accounts.spotify.com/authorize';
   const scope = [

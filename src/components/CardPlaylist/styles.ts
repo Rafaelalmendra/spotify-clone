@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  height: 5rem;
+  height: 5.3rem;
 
   display: flex;
   align-items: center;
@@ -15,9 +15,10 @@ export const Container = styled.div`
   cursor: pointer;
 
   img {
-    width: 5rem;
-    height: 5rem;
+    width: 5.3rem;
+    height: 5.3rem;
     object-fit: cover;
+    border-radius: 4px 0 0 4px;
   }
 
   .playIcon {
@@ -33,7 +34,7 @@ export const Container = styled.div`
     background: var(--green);
     border-radius: 50%;
 
-    transition: all 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 
     img {
       width: 34px;
@@ -41,6 +42,15 @@ export const Container = styled.div`
       margin-left: 3px;
 
       object-fit: cover;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
     }
   }
 
