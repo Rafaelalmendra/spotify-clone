@@ -18,8 +18,6 @@ import LibraryIcon from 'src/images/library-icon.svg';
 import LikedSongsIcon from 'src/images/liked-songs-icon.svg';
 import YourEpisodiesIcon from 'src/images/your-episodes-icon.svg';
 import CreatePlaylistIcon from 'src/images/create-playlist-icon.svg';
-import axios from 'axios';
-import useAuth from 'src/hooks/useAuth';
 
 interface PlaylistsProps {
   name: string;
@@ -27,23 +25,12 @@ interface PlaylistsProps {
 }
 
 const SideBar = () => {
-  const { token } = useAuth();
   const { data } = useAxiosFetch('/me/playlists');
   const [playlists, setPlaylists] = useState<PlaylistsProps[]>([]);
 
   useEffect(() => {
-    axios
-      .get('https://api.spotify.com/v1/me/playlists', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      })
-      .then((res) => {
-        const { items } = res.data;
-        setPlaylists(items);
-      });
-  }, [token]);
+    setPlaylists(data.items);
+  }, [data]);
 
   return (
     <S.Container>

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 //hooks
@@ -10,22 +9,33 @@ import api from 'src/services/api';
 const useAxiosFetch = (url: any) => {
   const { token } = useAuth();
   const [data, setData] = useState<any>([]);
+  const [error, setError] = useState('');
+  const [loading, setloading] = useState(true);
 
-  useEffect(() => {
-    axios
-      .get('https://api.spotify.com/v1/me/playlists', {
+  const fetchData = () => {
+    api
+      .get(url, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
       })
-      .then((res) => {
-        const { items } = res.data;
-        setData(items);
+      .then((response) => {
+        setData(response?.data);
+      })
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => {
+        setloading(false);
       });
-  }, [token]);
+  };
 
-  return { data };
+  useEffect(() => {
+    fetchData();
+  }, [token, url]);
+
+  return { data, error, loading };
 };
 
 export default useAxiosFetch;

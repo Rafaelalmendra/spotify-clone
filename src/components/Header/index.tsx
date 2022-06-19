@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 //hooks
 import useAuth from 'src/hooks/useAuth';
@@ -19,9 +18,11 @@ import ExternalLinkIcon from 'src/images/external-link-icon.svg';
 
 interface UserProps {
   display_name: string;
-  images: {
-    url: string;
-  };
+  images: [
+    {
+      url: string;
+    }
+  ];
 }
 
 const Header = () => {
@@ -29,27 +30,11 @@ const Header = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const { data } = useAxiosFetch('/me');
-  const [user, setUser] = useState<UserProps>();
+  const [user, setUser] = useState<UserProps>(data);
 
   useEffect(() => {
-    axios
-      .get('https://api.spotify.com/v1/me', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      })
-      .then((res) => {
-        const name = res.data.display_name;
-        const image = res.data.images[0].url;
-        setUser({
-          display_name: name,
-          images: {
-            url: image,
-          },
-        });
-      });
-  }, [token]);
+    setUser(data);
+  }, [data]);
 
   const logout = () => {
     localStorage.removeItem('access_token');
@@ -71,7 +56,9 @@ const Header = () => {
 
       <S.Profile>
         <S.ProfileContainer onClick={() => setIsOpen(!isOpen)}>
-          <img src={user?.images?.url} alt={`imagem de `} />
+          {data?.images?.map((item: any) => (
+            <img src={item.url} alt={`imagem de `} />
+          ))}
           <Text fontSize="14px" fontWeight="bold">
             {user?.display_name}
           </Text>
