@@ -1,25 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-//hooks
-import useAxiosFetch from 'src/hooks/useAxiosFetch';
 
 //layout
 import DashboardLayout from 'src/components/Layouts/Dashboard';
 
 //components
-import Modal from 'src/components/Modal';
 import { Text, Title } from 'src/styles/utils';
-import Button from 'src/components/Buttons/Button';
-import CardPlayList from 'src/components/CardPlaylist';
 
 //styles
 import * as S from 'src/styles/pages/home/styles';
 
 //images
 import withAuth from 'src/hocs/withAuth';
+import Playlists from 'src/components/Home/Playlists';
+import Episodies from 'src/components/Home/Episodies';
 
-interface PlaylistsProps {
+interface EpisodiesProps {
   name: string;
   id: string;
   images: [
@@ -31,26 +27,21 @@ interface PlaylistsProps {
 
 const Home = () => {
   const navigate = useNavigate();
-  const { data } = useAxiosFetch('/me/playlists', 6);
-  const [playlists, setPlaylists] = useState<PlaylistsProps[]>([]);
-
-  useEffect(() => {
-    setPlaylists(data?.items);
-  }, [data]);
+  const [episodies, setEpisodies] = useState<EpisodiesProps[]>([]);
 
   return (
     <DashboardLayout>
       <S.Container>
-        <Title margin="0 0 18px 0">Boa noite</Title>
-        <S.PlaylistContainer>
-          {playlists?.map((item) => (
-            <CardPlayList
-              key={item?.id}
-              text={item?.name}
-              image={item?.images[0]?.url}
-            />
-          ))}
-        </S.PlaylistContainer>
+        <Title margin="0 0 1.125rem 0">Boa noite</Title>
+        <Playlists />
+
+        <S.TextContainer>
+          <Text fontSize="1.5rem" fontWeight="bold">
+            Programas para conhecer
+          </Text>
+          <Text fontSize="12px">VER TUDO</Text>
+        </S.TextContainer>
+        <Episodies />
       </S.Container>
     </DashboardLayout>
   );

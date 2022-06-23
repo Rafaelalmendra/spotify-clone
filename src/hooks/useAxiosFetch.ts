@@ -21,6 +21,8 @@ const useAxiosFetch = (url: string, setParams?: number) => {
         },
         params: {
           limit: setParams,
+          ids: '3o3iEw0ojOwBNBhSQhPQCW,4Jsg7lNWjy7Sa0xI3Endax,4lSITHJE87mw0PC6iLXuIK,61K9p2WHGrWG0Jx6gieNON,42fmQlLrWsFpKzEA9VFV27,73LR1lN3Ugi2dGedrf8egE,35QBHJc5uKzCnHquxiJlT5,3gQl3lsitYfw3ovL0zy9Lw',
+          market: 'US',
         },
       })
       .then((response) => {

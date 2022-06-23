@@ -7,8 +7,8 @@ export const Container = styled.div`
   padding: 3.125rem 2.5rem 3rem 2.5rem;
 `;
 
-export const PlaylistContainer = styled.div`
-  grid-gap: 16px 24px;
-  display: grid;
-  grid-template: auto/repeat(auto-fill, minmax(max(10px, 25%), 1fr));
+export const TextContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3.375rem;
 `;
