@@ -1,20 +1,18 @@
-import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import useAuth from './hooks/useAuth';
+
+//pages
 import Home from './pages/home';
 import Login from './pages/login';
+import Playlist from './pages/playlist';
 
-const MappedRoutes = () => {
-  const { token } = useAuth();
-
-  return (
-    <Router>
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/" element={<Login />} />
-      </Routes>
-    </Router>
-  );
-};
+const MappedRoutes = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/playlist" element={<Playlist />} />
+    </Routes>
+  </Router>
+);
 
 export default MappedRoutes;

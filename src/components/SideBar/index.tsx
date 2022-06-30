@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 //hooks
 import useAxiosFetch from 'src/hooks/useAxiosFetch';
@@ -58,9 +59,11 @@ const SideBar = () => {
 
       <S.OptionsBottom>
         {playlists?.map((item) => (
-          <Text key={item.id} fontSize="0.875rem" color="var(--gray)">
-            {item.name}
-          </Text>
+          <Link to="/playlist">
+            <Text key={item.id} fontSize="0.875rem" color="var(--gray)">
+              {item.name}
+            </Text>
+          </Link>
         ))}
       </S.OptionsBottom>
     </S.Container>
