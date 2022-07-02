@@ -43,7 +43,7 @@ const Header = () => {
   return (
     <S.HeaderContainer>
       <S.NavigationContainer>
-        <S.ArrowContainer>
+        <S.ArrowContainer onClick={() => navigate(-1)}>
           <Image src={ArrowLeftIcon} width="24px" height="24px" />
         </S.ArrowContainer>
 
