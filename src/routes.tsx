@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 //pages
-import Home from './pages/home';
-import Login from './pages/login';
-import Playlist from './pages/playlist';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Playlist from './pages/Playlist';
 
 const MappedRoutes = () => (
   <Router>

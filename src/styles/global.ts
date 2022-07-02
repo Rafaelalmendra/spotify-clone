@@ -25,6 +25,7 @@ export default createGlobalStyle`
         padding: 0;
         border: 0;
         text-decoration: none;
+        list-style-type: none;
         box-sizing: border-box;
     }
 

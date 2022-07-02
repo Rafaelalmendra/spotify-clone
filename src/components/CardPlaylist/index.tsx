@@ -1,8 +1,6 @@
-//components
-import { Image, Text } from 'src/styles/utils';
-
 //styles
 import * as S from './styles';
+import { Image, Text } from 'src/styles/utils';
 
 //images
 import PlayIcon from 'src/images/play-icon.png';

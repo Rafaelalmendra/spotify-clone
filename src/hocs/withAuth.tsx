@@ -2,7 +2,7 @@
 import useAuth from 'src/hooks/useAuth';
 
 //pages
-import Login from 'src/pages/login';
+import Login from 'src/pages/Login';
 
 const withAuth = (Component: any) => {
   return (props: any) => {
