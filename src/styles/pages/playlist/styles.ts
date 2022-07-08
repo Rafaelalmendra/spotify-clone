@@ -29,6 +29,14 @@ export const HeaderInfos = styled.div`
 
 export const InfosPlaylist = styled.div`
   display: flex;
+
+  p:first-child {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;
 
 export const Body = styled.div`
@@ -71,7 +79,7 @@ export const BodyListHeader = styled.ul`
   display: grid;
   grid-gap: 1rem;
   align-items: center;
-  grid-template-columns: 16px 6fr 4fr 3fr 3fr minmax(120px, 1fr);
+  grid-template-columns: 16px 6fr 4fr 4fr minmax(120px, 1fr);
   padding: 0 1rem 0.4rem 1rem;
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
 
@@ -88,15 +96,60 @@ export const BodyListItens = styled.div`
   display: grid;
   grid-gap: 16px;
   align-items: center;
-  grid-template-columns: 16px 6fr 4fr 3fr 3fr minmax(120px, 1fr);
-  padding: 0 16px;
+  grid-template-columns: 16px 6fr 4fr 4fr minmax(120px, 1fr);
+  padding: 8px 16px;
+  border-radius: 4px;
   margin-top: 1.4rem;
+
+  &:hover {
+    background: var(--grayPrimary);
+
+    p,
+    span {
+      color: var(--white) !important;
+    }
+
+    .playIcon {
+      display: flex;
+    }
+
+    .numberText {
+      display: none;
+    }
+  }
 
   li {
     color: var(--gray);
     line-height: 1rem;
-    font-size: 0.78rem;
+    font-size: 0.845rem;
     letter-spacing: 0.1em;
-    text-transform: uppercase;
+  }
+
+  .numberText {
+    font-size: 1.125rem;
+  }
+
+  .playIcon {
+    display: none;
+  }
+
+  span:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+`;
+
+export const ImageAndMusicTitle = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const MusicTitleAndArtist = styled.div`
+  margin-left: 0.75rem;
+
+  p {
+    margin-bottom: 4px;
+    font-size: 1rem;
+    color: var(--white);
   }
 `;

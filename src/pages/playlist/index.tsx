@@ -33,9 +33,9 @@ const Playlist = () => {
 
             <S.InfosPlaylist>
               <Text fontSize="14px" fontWeight="600">
-                Rafael •&nbsp;
+                Rafael
               </Text>
-              <Text fontSize="14px">14 músicas,&nbsp;</Text>
+              <Text fontSize="14px">&nbsp;• 14 músicas,&nbsp;</Text>
               <Text fontSize="14px" color="var(--gray)">
                 11h 42min
               </Text>
@@ -57,8 +57,7 @@ const Playlist = () => {
               <li>#</li>
               <li>TÍTULO</li>
               <li>ÁLBUM OU PODCAST</li>
-              <li>DATA DE LANÇAMENTO</li>
-              <li>ADICIONADO EM</li>
+              <li>Adicionado em</li>
               <li>
                 <Clock size={20} />
               </li>
@@ -66,20 +65,31 @@ const Playlist = () => {
 
             <S.BodyListItens>
               <li>
-                <Play size={12} weight="fill" color="var(--white)" />
-              </li>
-              <li>
-                <Image
-                  src="https://i.scdn.co/image/ab67616d000048516ca5c90113b30c3c43ffb8f4"
-                  width="40px"
+                <p className="numberText">1</p>
+                <Play
+                  size={14}
+                  weight="fill"
+                  color="var(--white)"
+                  className="playIcon"
                 />
               </li>
-              <li>ÁLBUM OU PODCAST</li>
-              <li>DATA DE LANÇAMENTO</li>
-              <li>ADICIONADO EM</li>
               <li>
-                <Clock size={20} />
+                <S.ImageAndMusicTitle>
+                  <Image
+                    src="https://i.scdn.co/image/ab67616d000048516ca5c90113b30c3c43ffb8f4"
+                    width="40px"
+                  />
+                  <S.MusicTitleAndArtist>
+                    <p>Soldier</p>
+                    <span>Eminem</span>
+                  </S.MusicTitleAndArtist>
+                </S.ImageAndMusicTitle>
               </li>
+              <li>
+                <span>The Eminem Show</span>
+              </li>
+              <li>16 de set. de 2021</li>
+              <li>4:41</li>
             </S.BodyListItens>
           </S.BodyList>
         </S.Body>

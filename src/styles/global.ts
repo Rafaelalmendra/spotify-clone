@@ -27,6 +27,11 @@ export default createGlobalStyle`
         text-decoration: none;
         list-style-type: none;
         box-sizing: border-box;
+
+        //disable text selection
+        user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
     }
 
     body {
