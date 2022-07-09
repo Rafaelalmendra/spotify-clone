@@ -2,10 +2,12 @@
 import withAuth from 'src/hocs/withAuth';
 
 //components
+import ItensList from 'src/components/Playlist/ItensList';
+import HeaderList from 'src/components/Playlist/HeaderList';
 import DashboardLayout from 'src/components/Layouts/Dashboard';
 
 //icons
-import { DotsThree, Clock, Play } from 'phosphor-react';
+import { DotsThree } from 'phosphor-react';
 
 //styles
 import * as S from 'src/styles/pages/playlist/styles';
@@ -53,44 +55,9 @@ const Playlist = () => {
           </S.BodyOptions>
 
           <S.BodyList>
-            <S.BodyListHeader>
-              <li>#</li>
-              <li>TÍTULO</li>
-              <li>ÁLBUM OU PODCAST</li>
-              <li>Adicionado em</li>
-              <li>
-                <Clock size={20} />
-              </li>
-            </S.BodyListHeader>
+            <HeaderList />
 
-            <S.BodyListItens>
-              <li>
-                <p className="numberText">1</p>
-                <Play
-                  size={14}
-                  weight="fill"
-                  color="var(--white)"
-                  className="playIcon"
-                />
-              </li>
-              <li>
-                <S.ImageAndMusicTitle>
-                  <Image
-                    src="https://i.scdn.co/image/ab67616d000048516ca5c90113b30c3c43ffb8f4"
-                    width="40px"
-                  />
-                  <S.MusicTitleAndArtist>
-                    <p>Soldier</p>
-                    <span>Eminem</span>
-                  </S.MusicTitleAndArtist>
-                </S.ImageAndMusicTitle>
-              </li>
-              <li>
-                <span>The Eminem Show</span>
-              </li>
-              <li>16 de set. de 2021</li>
-              <li>4:41</li>
-            </S.BodyListItens>
+            <ItensList />
           </S.BodyList>
         </S.Body>
       </S.Container>
