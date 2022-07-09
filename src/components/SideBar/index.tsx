@@ -35,14 +35,18 @@ const SideBar = () => {
 
   return (
     <S.Container>
-      <S.ImageContainer>
-        <Image src={SpotifyIcon} width="139px" height="47px" />
-      </S.ImageContainer>
+      <Link to="/home">
+        <S.ImageContainer>
+          <Image src={SpotifyIcon} width="139px" height="47px" />
+        </S.ImageContainer>
+      </Link>
 
       <S.OptionsTop>
-        <ButtonWithIcon active icon={HomeIcon}>
-          Início
-        </ButtonWithIcon>
+        <Link to="/home">
+          <ButtonWithIcon active icon={HomeIcon}>
+            Início
+          </ButtonWithIcon>
+        </Link>
         <ButtonWithIcon icon={SearchIcon}>Buscar</ButtonWithIcon>
         <ButtonWithIcon icon={LibraryIcon}>Sua biblioteca</ButtonWithIcon>
       </S.OptionsTop>
@@ -59,7 +63,7 @@ const SideBar = () => {
 
       <S.OptionsBottom>
         {playlists?.map((item) => (
-          <Link to="/playlist">
+          <Link to={`/home/playlist/${item.id}`}>
             <Text key={item.id} fontSize="0.875rem" color="var(--gray)">
               {item.name}
             </Text>

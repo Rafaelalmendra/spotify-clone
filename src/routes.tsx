@@ -10,7 +10,7 @@ const MappedRoutes = () => (
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/playlist" element={<Playlist />} />
+      <Route path="/home/playlist/:id" element={<Playlist />} />
     </Routes>
   </Router>
 );
