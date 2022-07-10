@@ -63,8 +63,8 @@ const SideBar = () => {
 
       <S.OptionsBottom>
         {playlists?.map((item) => (
-          <Link to={`/home/playlist/${item.id}`}>
-            <Text key={item.id} fontSize="0.875rem" color="var(--gray)">
+          <Link key={item.id} to={`/home/playlist/${item.id}`}>
+            <Text fontSize="0.875rem" color="var(--gray)">
               {item.name}
             </Text>
           </Link>

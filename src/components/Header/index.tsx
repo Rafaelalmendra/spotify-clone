@@ -26,8 +26,9 @@ interface UserProps {
 
 const Header = () => {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
   const { data } = useAxiosFetch('/me');
+
+  const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<UserProps>(data);
 
   useEffect(() => {
@@ -55,7 +56,7 @@ const Header = () => {
       <S.Profile>
         <S.ProfileContainer onClick={() => setIsOpen(!isOpen)}>
           {data?.images?.map((item: any) => (
-            <img src={item?.url} alt={`imagem de `} />
+            <img key={item.url} src={item?.url} alt={`imagem de `} />
           ))}
           <Text fontSize="14px" fontWeight="bold">
             {user?.display_name}

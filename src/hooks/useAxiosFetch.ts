@@ -13,6 +13,8 @@ const useAxiosFetch = (url: string, setParams?: number) => {
   const [loading, setloading] = useState(true);
 
   const fetchData = (url: string, setParams?: number) => {
+    setloading(true);
+
     api
       .get(url, {
         headers: {

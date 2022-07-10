@@ -20,6 +20,12 @@ export const Header = styled.div`
   }
 `;
 
+export const CardImage = styled.div`
+  width: 240px;
+  height: 240px;
+  background: var(--green);
+`;
+
 export const HeaderInfos = styled.div`
   display: flex;
   flex-direction: column;

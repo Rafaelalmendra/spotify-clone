@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 //hocs
 import withAuth from 'src/hocs/withAuth';
@@ -18,16 +19,17 @@ import { Image, Text, Title } from 'src/styles/utils';
 //images-and-icons
 import { DotsThree } from 'phosphor-react';
 import PlayIcon from 'src/images/play-icon.png';
-import ImageTest from 'src/images/image-playlist-test.jpg';
-import { useParams } from 'react-router-dom';
 
 const Playlist = () => {
   const { id } = useParams<{ id: string }>();
-  const [playlist, setPlaylist] = useState<any>([]);
   const { data } = useAxiosFetch(`/playlists/${id}`);
 
+  const [playlist, setPlaylist] = useState<any>([]);
+
   useEffect(() => {
-    setPlaylist(data);
+    if (data) {
+      setPlaylist(data);
+    }
   }, [data]);
 
   console.log(playlist);
@@ -36,7 +38,13 @@ const Playlist = () => {
     <DashboardLayout>
       <S.Container>
         <S.Header>
-          <Image src={playlist?.images[0]?.url} alt="Capa da playlist" />
+          {playlist.length === 0 ? (
+            <S.CardImage>
+              <p>Loading...</p>
+            </S.CardImage>
+          ) : (
+            <Image src={playlist?.images[0]?.url} alt="Capa da playlist" />
+          )}
 
           <S.HeaderInfos>
             <Text fontSize="12px" fontWeight="600">
