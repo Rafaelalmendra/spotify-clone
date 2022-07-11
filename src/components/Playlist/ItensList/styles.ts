@@ -61,7 +61,7 @@ export const MusicTitleAndArtist = styled.div`
 
   p {
     margin-bottom: 4px;
-    font-size: 1rem;
+    font-size: 0.875rem;
     color: var(--white);
   }
 `;

@@ -79,7 +79,7 @@ interface TextProps {
 }
 
 export const Text = styled.p<TextProps>`
-  font-size: ${(props) => props.fontSize || '1rem'};
+  font-size: ${(props) => props.fontSize || '1rem'} !important;
   font-weight: ${(props) => props.fontWeight || 'normal'};
   text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')};
   color: ${(props) => props.color || 'var(--white)'};

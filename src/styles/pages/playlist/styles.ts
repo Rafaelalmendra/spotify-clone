@@ -21,9 +21,12 @@ export const Header = styled.div`
 `;
 
 export const CardImage = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 240px;
   height: 240px;
-  background: var(--green);
+  background: var(--grayPrimary);
 `;
 
 export const HeaderInfos = styled.div`

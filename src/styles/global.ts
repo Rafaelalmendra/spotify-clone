@@ -39,13 +39,15 @@ export default createGlobalStyle`
     }
 
     ::-webkit-scrollbar {
-    height: 0.65rem;
-    width: 0.625rem;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #4D4D4D;
-  }
+      height: 0.65rem;
+      width: 0.8rem;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #4D4D4D;
+    }
  `;

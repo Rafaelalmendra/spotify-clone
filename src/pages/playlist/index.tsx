@@ -27,9 +27,7 @@ const Playlist = () => {
   const [playlist, setPlaylist] = useState<any>([]);
 
   useEffect(() => {
-    if (data) {
-      setPlaylist(data);
-    }
+    setPlaylist(data);
   }, [data]);
 
   console.log(playlist);
@@ -40,7 +38,7 @@ const Playlist = () => {
         <S.Header>
           {playlist.length === 0 ? (
             <S.CardImage>
-              <p>Loading...</p>
+              <Text>Carregando a imagem...</Text>
             </S.CardImage>
           ) : (
             <Image src={playlist?.images[0]?.url} alt="Capa da playlist" />
@@ -57,7 +55,7 @@ const Playlist = () => {
 
             <S.InfosPlaylist>
               <Text fontSize="14px" fontWeight="600">
-                Rafael
+                {playlist?.owner?.display_name}
               </Text>
               <Text fontSize="14px">
                 &nbsp;• {playlist?.tracks?.total} músicas,&nbsp;
@@ -75,13 +73,24 @@ const Playlist = () => {
               <Image src={PlayIcon} width="40px" height="40px" />
             </S.PlayIcon>
 
-            <DotsThree size={45} color="var(--white)" />
+            <DotsThree size={45} color="var(--gray)" />
           </S.BodyOptions>
 
           <S.BodyList>
             <HeaderList />
 
-            <ItensList />
+            {playlist?.tracks?.items?.map((item: any, index: number) => (
+              <ItensList
+                key={index}
+                number={index + 1}
+                name={item?.track?.name}
+                album={item?.track?.album?.name}
+                artist={item?.track?.artists[0]?.name}
+                date={item?.track?.album?.release_date}
+                image={item?.track?.album?.images[0]?.url}
+                duration={item?.track?.duration_ms}
+              />
+            ))}
           </S.BodyList>
         </S.Body>
       </S.Container>
