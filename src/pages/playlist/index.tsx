@@ -80,16 +80,31 @@ const Playlist = () => {
             <HeaderList />
 
             {playlist?.tracks?.items?.map((item: any, index: number) => (
-              <ItensList
-                key={index}
-                number={index + 1}
-                name={item?.track?.name}
-                album={item?.track?.album?.name}
-                artist={item?.track?.artists[0]?.name}
-                date={item?.track?.album?.release_date}
-                image={item?.track?.album?.images[0]?.url}
-                duration={item?.track?.duration_ms}
-              />
+              <>
+                {item?.track === null ? (
+                  <ItensList
+                    key={index}
+                    number={index + 1}
+                    name="Titulo não encontrado"
+                    album="Álbum não encontrado"
+                    artist="Artista não encontrado"
+                    date="Data não encontrada"
+                    image=""
+                    duration={0}
+                  />
+                ) : (
+                  <ItensList
+                    key={index}
+                    number={index + 1}
+                    name={item?.track?.name}
+                    album={item?.track?.album?.name}
+                    artist={item?.track?.artists[0]?.name}
+                    date={item?.track?.album?.release_date}
+                    image={item?.track?.album?.images[0]?.url}
+                    duration={item?.track?.duration_ms}
+                  />
+                )}
+              </>
             ))}
           </S.BodyList>
         </S.Body>

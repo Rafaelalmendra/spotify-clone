@@ -9,7 +9,7 @@ import { DotsThree, Play, Heart } from 'phosphor-react';
 
 interface ItensListProps {
   number: number;
-  image: string;
+  image: any;
   name: string;
   artist: string;
   album: string;
@@ -41,7 +41,7 @@ const ItensList = ({
       </li>
       <li>
         <S.ImageAndMusicTitle>
-          <Image src={image} width="40px" />
+          {image === '' ? <S.NoImage /> : <Image src={image} width="40px" />}
           <S.MusicTitleAndArtist>
             <p>{name}</p>
             <span>{artist}</span>
